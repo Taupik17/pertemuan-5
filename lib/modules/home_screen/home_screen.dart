@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pertemuan_v/configs/app_routes.dart';
 import 'package:pertemuan_v/models/user.dart';
 
 import 'home_screen_widget.dart';
@@ -8,6 +10,7 @@ class HomeScreen extends StatefulWidget {
     super.key,
     required this.user,
   });
+
   final User user;
 
   @override
@@ -50,9 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: SearchFieldWidget(),
           ),
-          const SizedBox(
-            height: 16,
-          ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,16 +68,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 8,
                 ),
+                // ignore: prefer_const_constructors
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  child: HotestNewsCard(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    // ignore: prefer_const_constructors
+                    child: InkWell(
+                      onTap: () {
+                        GoRouter.of(context).goNamed(
+                          AppRoutes.newsDetailHot,
+                        );
+                      },
+                      child: HotestNewsCard(
                     size: size,
-                    newsTitle: "Lebaran Sebentar Lagi",
-                    pictureUrl: "https://picsum.photos/1080/690",
+                    newsTitle: "Cara Memanfaatkan HP Bekas jadi CCTV",
+                    pictureUrl:
+                        "https://i0.wp.com/barisan.co/wp-content/uploads/2023/03/HP-jadi-CCTV.jpg?resize=750%2C480&ssl=1",
                   ),
-                ),
+                    )),
                 const SizedBox(
                   height: 16,
                 ),

@@ -10,6 +10,7 @@ class AppRoutes {
   static const String splash = "splash";
   static const String home = "home";
   static const String newsDetail = "news-detail";
+  static const String newsDetailHot = "news-detail-hot";
 
   static Page _splahScreenBuilder(BuildContext context, GoRouterState state) {
     return const MaterialPage(
@@ -24,11 +25,11 @@ class AppRoutes {
     } else {
       user = User(
         id: 002,
-        name: "Permata",
-        username: "permata",
-        email: "permata@email.com",
+        name: "Taupik Rahman",
+        username: "Taupik",
+        email: "2006093@itg.ac.id",
         profilePhoto:
-            "https://i.pinimg.com/originals/06/87/a8/0687a8ac12eee878f87ddfa8f0cc66d8.jpg",
+            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
         phoneNumber: "085111123456",
       );
     }
@@ -50,6 +51,15 @@ class AppRoutes {
     );
   }
 
+  static Page _newsDetailScreenHotBuilder(
+    BuildContext context,
+    GoRouterState state,
+  ) {
+    return const MaterialPage(
+      child: NewsDetailScreenHot(newsDetailHot: newsDetailHot),
+    );
+  }
+
   static final GoRouter goRouter = GoRouter(
     routes: [
       GoRoute(
@@ -68,6 +78,11 @@ class AppRoutes {
             pageBuilder: _newsDetailScreenBuilder,
           ),
         ],
+      ),
+      GoRoute(
+        name: newsDetailHot,
+        path: "/news-detail-hot",
+        pageBuilder: _newsDetailScreenHotBuilder,
       ),
     ],
     initialLocation: "/splash",

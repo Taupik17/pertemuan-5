@@ -29,12 +29,12 @@ class User {
   factory User.dummy() {
     return User(
       id: 001,
-      name: "Diar Nur Rizky",
-      username: "diarn",
-      email: "diarn@email.com",
+      name: "Taupik Rahman",
+      username: "Taupik",
+      email: "2006093@itg.ac.id",
       profilePhoto:
-          "https://cdn.idntimes.com/content-images/community/2020/09/104967619-2451390651819718-4934284928595035666-n-2fc82b7325949c7d003c1c58e17d48b7.jpg",
-      phoneNumber: "085123456789",
+          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      phoneNumber: "081584212530",
     );
   }
 }
